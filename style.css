@@ -75,19 +75,31 @@ body {
     --spacing: 2rem;
     --radius: 10px;
 }
-.tree-title {
-    display: inline;
+
+.tree-title-img {
+    display: flex;
+    gap: 0px;
+}
+.title-img{
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
 }
 
-.tree li {
+.tree-title-img li {
+    display: block;
+} 
+
+.tree .tree-title-body li {
     display: block;
     position: relative;
-    padding-left: calc(2 * var(--spacing) - var(--radius) - 2px);
+    padding-left: calc(2 * var(--spacing) - var(--radius) - 10px);
 }
+.tree li h2
 
 .tree ul {
     margin-left: calc(var(--radius) - var(--spacing));
-    padding-left: 0;
+    padding-left: 50px;
 }
 
 .tree ul li:last-child {
