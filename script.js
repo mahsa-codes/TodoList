@@ -14,8 +14,26 @@ const formatDate = (date) => {
     return `${year}/${month}/${day}`;
 }
 
-const taskForm = document.getElementById('task-form');
-const submitButton = document.getElementsById('submit-button');
+const showForm = document.getElementById('showTaskForm')
+const overlay = document.getElementById('overlay');
+const taskForm = document.getElementById('task-form')
+const pageContent = document.getElementById('page-content')
+const closeForm = document.getElementById('task-form-close')
+
+showForm.addEventListener('click', function() {
+  overlay.style.display = 'flex';
+  pageContent.classList.add('blur');
+  
+});
+
+
+closeForm.addEventListener('click', function(e) {
+  if (e.target === closeForm) {
+    overlay.style.display = 'none';
+    pageContent.classList.remove('blur');
+  }
+  
+})
 
 taskForm.addEventListener('submit', function(event) {
     event.preventDefault();
