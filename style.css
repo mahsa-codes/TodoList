@@ -202,6 +202,9 @@ body {
 .task-header-title h4 {
     font-size: 18px;
 }
+.task-edit-delete-icon {
+    cursor: pointer;
+}
 .card-task-description {
     display: block;
     unicode-bidi: isolate;
