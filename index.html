@@ -57,10 +57,10 @@
                 <div class="header">
                     <div class="header-title">
                         <h4 id="todo-current-date"></h4>
-                        <div class="category">
-                            <li><strong>All</strong>
-                            <li><strong>Completed</strong></li>
-                        </div>
+                        <ul class="category">  
+                            <li id="all-task" class="active"><strong>All</strong>
+                            <li id="completed-task"><strong>Completed</strong></li>  
+                        </ul>
                     </div>
                     <div class="search">
                         <div class="searchbar">
@@ -101,10 +101,10 @@
                         <div class="card-task-header">
                             <div class="task-header-title">
                                 <input type="checkbox" id="title-task-checked">
-                                <h4 id="title-task-edit">Walk the dog</h4>
+                                <h4>Walk the dog</h4>
                             </div>
                             <div class="task-edit-delete-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     style="margin-right: 5px;">
                                     <title>delete task</title>
                                     <g id="delete-task" fill="none" fill-rule="evenodd">
@@ -116,7 +116,7 @@
                                         </path>
                                     </g>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     style="margin-right: 5px;">
                                     <title>edit task</title>
                                     <g id="edit-task" fill="none">
@@ -131,10 +131,10 @@
                             </div>
                         </div>
                         <div class="card-task-description">
-                            <p id="task-description-edit">Complete the math and science assignments.</p>
+                            <p >Complete the math and science assignments.</p>
                         </div>
                         <div class="card-task-deadline">
-                            <h4 id="task-deadline-edit">1hours</h4>
+                            <h4>1hours</h4>
                         </div>
                     </div>
                     <div class="card-task-second">
@@ -144,7 +144,7 @@
                                 <h4>Call mom</h4>
                             </div>
                             <div class="task-edit-delete-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     style="margin-right: 5px;">
                                     <title>delete task</title>
                                     <g id="delete-task" fill="none" fill-rule="evenodd">
@@ -156,7 +156,7 @@
                                         </path>
                                     </g>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     style="margin-right: 5px;">
                                     <title>edit task</title>
                                     <g id="edit-task" fill="none">
@@ -185,7 +185,7 @@
                                 <h4>Workout at the gym</h4>
                             </div>
                             <div class="task-edit-delete-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     style="margin-right: 5px;">
                                     <title>delete task</title>
                                     <g id="delete-task" fill="none" fill-rule="evenodd">
@@ -197,7 +197,7 @@
                                         </path>
                                     </g>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                <svg class="edit-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                     style="margin-right: 5px;">
                                     <title>edit task</title>
                                     <g id="edit-task" fill="none">
