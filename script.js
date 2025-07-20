@@ -145,10 +145,10 @@ const completedTask = document.getElementById('completed-task');
 allTask.addEventListener('click', function(){
     document.querySelector('.active').classList.remove('active')
     this.classList.add('active');
-    console.log('clicked all')
 
-    const allCards = document.querySelectorAll('.card-task-first');
+    const allCards = document.querySelectorAll('.card-task');
     allCards.forEach(card => {
+        console.log(card)
         card.style.display = 'block';
     });
 });
@@ -156,18 +156,32 @@ allTask.addEventListener('click', function(){
 completedTask.addEventListener('click', function(){
     document.querySelector('.active').classList.remove('active')
     this.classList.add('active');
-    console.log('clicked com')
 
-    const allCards = document.querySelectorAll('.card-task-first');
-    allCards.forEach(card=> {
-        const checkbox = card.querySelector('input[type="checkbox"]');
-        if(checkbox) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none'; 
+    document.querySelectorAll('.card-task').forEach(card=> {
+        const checkbox = card.querySelector('input[type="checkbox"]'); 
+        card.style.display = checkbox && checkbox.checked ? 'block': 'none';
+        console.log(card);
+    });
+});
+
+const searchInput = document.getElementById('searchbar')
+
+searchInput.addEventListener('keyup', function(){
+    const search = searchInput.value.toLowerCase();
+
+    document.querySelectorAll('.card-task').forEach(card=> {
+        const titleTask = card.querySelector('.title-task');
+    
+        if (titleTask && titleTask.textContent.toLowerCase().includes(search)) {
+            card.style.display = "block";
+        }
+        else {
+            card.style.display = "none";
         }
     });
-})
+});
+
+
 
 
 

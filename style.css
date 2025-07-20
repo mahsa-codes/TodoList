@@ -59,29 +59,24 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 8px;
 }
-.card-task-first {
+.card-task {
     display: grid;
     max-width:300px;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.first{
     background-color: rgb(208, 214, 145);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
 }
-.card-task-second {
-    display: grid;
-    max-width:300px;
+.second {
     background-color: rgb(178, 149, 192);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
+
 }
-.card-task-third {
-    display: grid;
-    max-width:300px;
+
+.third {
     background-color: rgb(153, 194, 185);
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
 }
 
 .tree {
@@ -153,15 +148,13 @@ body {
 .header-title li :hover {
     color: gray;
 }
-.header-title .active {
-    color: rgb(8, 126, 199);
-}
 
 .header-title li :active{
     color: rgb(8, 126, 199);  
 }
-
-
+.header-title .active {
+    color: rgb(8, 126, 199);
+}
 
 .search {
     display: flex;
