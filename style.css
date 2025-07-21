@@ -104,6 +104,7 @@ body {
     position: relative;
     margin-left: 30px;
 }
+
 .tree-body .vertical-line {
     border: 2px solid gray;
     position: absolute;
