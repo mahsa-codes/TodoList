@@ -15,9 +15,9 @@
     </head>
     <body>
         <div id="page-content">
-            <div class="left-colomn">
-                <ul class="tree">
-                    <div class="tree-title-img">
+            <div class="left-colomn" id="tree-tasks">
+                <div class="tree">
+                    <div class="tree-header">
                         <div class="title-img">
                             <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 24 24">
                                 <title>task logo</title>
@@ -30,28 +30,29 @@
                                     </path>
                                 </g>
                             </svg>
-                        </div>
-                        <li>
                             <h2>Todo List</h2>
-                        </li>
+                        </div>     
                     </div>
-                    <div class="tree-title-body">
-                        <ul>
-                            <li>
-                                <p>Walk the dog</p>
-                            </li>
-                            <li>
-                                <p>Finish homework</p>
-                            </li>
-                            <li>
-                                <p>Call mom</p>
-                            </li>
-                            <li>
-                                <p>Workout at the gym</p>
-                            </li>
-                        </ul>
+                    <div class="tree-body">
+                        <div class="vertical-line"></div>
+                        <div class="tree-body-title">
+                            <hr class="horizental-line">
+                            <div class="tree-title">Walk the dog</div>
+                        </div>
+                        <div class="tree-body-title">
+                            <hr class="horizental-line">
+                            <div class="tree-title">Finish homework</div>
+                        </div>
+                        <div class="tree-body-title">
+                            <hr class="horizental-line">
+                            <div class="tree-title">Call mom</div>
+                        </div>
+                        <div class="tree-body-title">
+                            <hr class="horizental-line">
+                            <div class="tree-title">Workout at the gym</div>
+                        </div>
                     </div>
-                </ul>
+                </div>
             </div>
             <div class="right-colomn">
                 <div class="header">
@@ -92,7 +93,8 @@
                                         </path>
                                     </g>
                                 </svg>
-                                Add New List</button>
+                                Add New List
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -234,7 +236,6 @@
                 <input type="text" id="task-date" class="task-date" name="deadline" placeholder="Add Dead Line" required />
                 <button type="submit" id="submit-button" class="submit-button">Add Task</button>
             </form>
-        </div>
         </div>
     </body>
 </html>

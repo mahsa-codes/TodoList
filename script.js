@@ -20,6 +20,7 @@ const pageContent = document.getElementById('page-content')
 const closeForm = document.getElementById('task-form-close')
 const taskForm = document.getElementById('task-form')
 const taskList =document.getElementById('task-lists')
+const treeList = document.getElementById('tree-tasks')
 const submitButton = document.getElementById('submit-button')
 let editTask  = null
 
@@ -42,21 +43,32 @@ taskForm.addEventListener('submit', function(event) {
         return; 
     }
     if (editTask){
+        const id = editTask.dataset.id;
+
         editTask.querySelector('.task-header-title h4').textContent = title;
         editTask.querySelector('.card-task-description p').textContent = description;
         editTask.querySelector('.card-task-deadline h4').textContent = deadline;
 
+        const treeItem = document.querySelector(`.title-body[data-id="${id}"] p`);
+        if(treeItem){
+            treeItem.textContent = title;
+        }
+
         alert('Task is updated')
 
     } else {
-        const newCard = document.createElement('div')
-        newCard.className = 'card-task-first';
+        const taskId = Date.now();
+
+        const newCard = document.createElement('div');
+        newCard.className = 'card-task';
+        newCard.dataset.id = taskId;
 
         newCard.innerHTML = `
-            <div class="card-task-header">
+            <div class="card-task">
+                <div class="card-task-header">
                     <div class="task-header-title">
-                        <input type="checkbox" id="title-task-checked">
-                        <h4 id="title-task-edit">${title}</h4>
+                        <input type="checkbox" id="task-check one">
+                        <h4 class="title-task">${title}</h4>
                     </div>
                     <div class="task-edit-delete-icon">
                         <svg class="delete-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -86,14 +98,34 @@ taskForm.addEventListener('submit', function(event) {
                     </div>
                 </div>
                 <div class="card-task-description">
-                    <p id="task-description-edit">${description}</p>
+                    <p >${description}</p>
                 </div>
                 <div class="card-task-deadline">
-                    <h4 id="task-deadline-edit">${deadline}</h4>
+                    <h4>${deadline}</h4>
                 </div>
             </div>`;  
+
+        const newTree = document.createElement('li');
+        newTree.className = 'title-body';
+        newTree.dataset.id = taskId;
+        newTree.innerHTML = `
+            <div class="left-colomn" id="tree-tasks">
+                <ul class="tree"> 
+                    <li class="tree-body">
+                        <ul>
+                            <li class="title-body">
+                                <p>${title}/p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>`;
+
         taskList.appendChild(newCard);
+        taskList.appendChild(newTree);
+
         eventEditHandler(newCard);
+
         alert('New Task Added')
     } 
     taskForm.reset();
@@ -107,13 +139,14 @@ function eventEditHandler(task) {
     
 
     editIcon.addEventListener('click', ()=> {
-        console.log('clicked')
+    
         editTask = task;
         const title = task.querySelector('.task-header-title h4').textContent;
         const description= task.querySelector('.card-task-description p').textContent;
         const deadline= task.querySelector('.card-task-deadline h4').textContent;
 
-        document.getElementById('task-title').value = title
+        
+        document.getElementById('task-title').value = title;
         document.getElementById('task-description').value = description;
         document.getElementById('task-date').value = deadline;
 
@@ -121,15 +154,21 @@ function eventEditHandler(task) {
         overlay.style.display = 'flex';
         pageContent.classList.add('blur');
     });
+
     deleteIcon.addEventListener('click', () => {
         if(confirm("Are you sure to delete the Task?")) {
+
+            const id = task.dataset.id;
+            const treeItem = document.querySelector(`.title-body[data-id="${id}"]`);
+            if (treeItem) treeItem.remove();
             task.remove();
+
         }
     })
 };
-document.querySelectorAll('.card-task-first').forEach(task => {
+document.querySelectorAll('.card-task').forEach(task => {
     eventEditHandler(task);
-})
+});
 
 
 closeForm.addEventListener('click', function(e) {
