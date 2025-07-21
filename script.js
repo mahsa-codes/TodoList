@@ -49,7 +49,7 @@ taskForm.addEventListener('submit', function(event) {
         editTask.querySelector('.card-task-description p').textContent = description;
         editTask.querySelector('.card-task-deadline h4').textContent = deadline;
 
-        const treeItem = document.querySelector(`.title-body[data-id="${id}"] p`);
+        const treeItem = document.querySelector(`.tree-body-title[data-id="${id}"] div`);
         if(treeItem){
             treeItem.textContent = title;
         }
@@ -105,24 +105,15 @@ taskForm.addEventListener('submit', function(event) {
                 </div>
             </div>`;  
 
-        const newTree = document.createElement('li');
-        newTree.className = 'title-body';
+        const newTree = document.createElement('div');
+        newTree.className = 'tree-body-title';
         newTree.dataset.id = taskId;
-        newTree.innerHTML = `
-            <div class="left-colomn" id="tree-tasks">
-                <ul class="tree"> 
-                    <li class="tree-body">
-                        <ul>
-                            <li class="title-body">
-                                <p>${title}/p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>`;
+        newTree.innerHTML = `            
+            <hr class="horizental-line">
+            <div class="tree-title">${title}</div>`;
 
         taskList.appendChild(newCard);
-        taskList.appendChild(newTree);
+        document.querySelector('#tree-tasks .tree-body').appendChild(newTree);
 
         eventEditHandler(newCard);
 
@@ -159,7 +150,7 @@ function eventEditHandler(task) {
         if(confirm("Are you sure to delete the Task?")) {
 
             const id = task.dataset.id;
-            const treeItem = document.querySelector(`.title-body[data-id="${id}"]`);
+            const treeItem = document.querySelector(`.tree-body-title[data-id="${id}"]`);
             if (treeItem) treeItem.remove();
             task.remove();
 
